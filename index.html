@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Проверка перед переходом</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+function onSubmit(token) {
+  window.location.href = "https://t.me/sekretpsiha";
+}
+</script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Подтвердите, что вы не робот</h1>
+    <form action="?" method="POST">
+      <button class="g-recaptcha"
+              data-sitekey="6LeAdqErAAAAAHGZLsoRdoRv6V_wtclf7iasRar5"
+              data-callback="onSubmit"
+              data-action="submit">
+        Я не робот
+      </button>
+    </form>
+  </div>
+</body>
+</html>

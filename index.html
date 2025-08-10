@@ -6,8 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-function onSubmit(token) {
-  window.location.href = "https://t.me/sekretpsiha";
+function fakeCheck() {
+  // Имитация проверки и переход в Telegram
+  setTimeout(function(){
+    window.location.href = "https://t.me/sekretpsiha";
+  }, 800); // задержка для реалистичности
 }
 </script>
 <style>
@@ -26,6 +29,12 @@ function onSubmit(token) {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   button {
     padding: 0.5rem 1rem;
@@ -37,14 +46,11 @@ function onSubmit(token) {
 <body>
   <div class="container">
     <h1>Подтвердите, что вы не робот</h1>
-    <form action="?" method="POST">
-      <button class="g-recaptcha"
-              data-sitekey="6LeAdqErAAAAAHGZLsoRdoRv6V_wtclf7iasRar5"
-              data-callback="onSubmit"
-              data-action="submit">
-        Я не робот
-      </button>
-    </form>
+    <button class="g-recaptcha"
+            data-sitekey="6LeAdqErAAAAAHGZLsoRdoRv6V_wtclf7iasRar5"
+            data-callback="fakeCheck">
+      Я не робот
+    </button>
   </div>
 </body>
 </html>

@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Проверка перед переходом</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-function fakeCheck() {
-  // Имитация проверки и переход в Telegram
-  setTimeout(function(){
-    window.location.href = "https://t.me/sekretpsiha";
-  }, 800); // задержка для реалистичности
+function onSubmit(token) {
+  // Переход в Telegram после успешного нажатия на капчу
+  window.location.href = "https://t.me/sekretpsiha";
 }
 </script>
 <style>
@@ -36,21 +34,21 @@ function fakeCheck() {
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
-  button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
 </style>
 </head>
 <body>
   <div class="container">
     <h1>Подтвердите, что вы не робот</h1>
-    <button class="g-recaptcha"
-            data-sitekey="6LeAdqErAAAAAHGZLsoRdoRv6V_wtclf7iasRar5"
-            data-callback="fakeCheck">
-      Я не робот
-    </button>
+    <form action="?" method="POST">
+      <button
+        class="g-recaptcha"
+        data-sitekey="6LeAdqErAAAAAHGZLsoRdoRv6V_wtclf7iasRar5"
+        data-callback="onSubmit"
+        data-action="submit"
+      >
+        Я не робот
+      </button>
+    </form>
   </div>
 </body>
 </html>
